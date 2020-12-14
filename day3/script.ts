@@ -327,92 +327,46 @@ let input = [
 ]
 
 /* ---------- FIRST PART OF THE CHALLENGE ---------- */
+    function tobboganFunction (i, j) {
+    //First we define our actual position, whic is the first caracter of the first element of the array (Top left corner)
+    let actualPosition = [0,0];
+    //Now we need to know the lenght of the map, so we can stablish a limit to iterate the rows properly
+    let mapLength = input[0].split('').length;
+    let trees = 0;
+    let finished = false;
 
-//First we define our actual position, whic is the first caracter of the first element of the array (Top left corner)
-let actualPosition = [0,0];
-//Now we need to know the lenght of the map, so we can stablish a limit to iterate the rows properly
-let mapLength = input[0].split('').length;
-let trees = 0;
-
-let secondSlope = 0;
-let thirdSlope = 0;
-let fourthSlope = 0;
-let fifthSlope = 0;
-
-let finished = false;
-let counter = 1
-
-while (!finished) {
-   if (counter == 1) {
-      actualPosition = [(actualPosition[0] + 3) % mapLength, (actualPosition[1] + 1)];
-      console.log(actualPosition);
-      //We check if we reached the bottom
-      finished = input[actualPosition[1]] == undefined;
-      if (!finished) {
-          let splittedRow = input[actualPosition[1]].split('');
-          if (splittedRow[actualPosition[0]] == '#') trees++;
-      }
-    }
-
-    if (counter == 2) {
-        actualPosition = [(actualPosition[0] + 1) % mapLength, (actualPosition[1] + 1)];
+    while (!finished) {
+        actualPosition = [(actualPosition[0] + i) % mapLength, (actualPosition[1] + j)];
         console.log(actualPosition);
+        //We check if we reached the bottom
         finished = input[actualPosition[1]] == undefined;
         if (!finished) {
-            let splittedRow2 = input[actualPosition[1]].split('');
-            if (splittedRow2[actualPosition[0]] == '#') secondSlope++;
+            let splittedRow = input[actualPosition[1]].split('');
+            if (splittedRow[actualPosition[0]] === '#') trees++;
         }
     }
-
-    if (counter == 3) {
-        actualPosition = [(actualPosition[0] + 5) % mapLength, (actualPosition[1] + 1)];
-        console.log(actualPosition);
-        finished = input[actualPosition[1]] == undefined;
-        if (!finished) {
-            let splittedRow3 = input[actualPosition[1]].split('');
-            if (splittedRow3[actualPosition[0]] == '#') thirdSlope++;
-        }
-    }
-
-    if (counter == 4) {
-        actualPosition = [(actualPosition[0] + 7) % mapLength, (actualPosition[1] + 1)];
-        console.log(actualPosition);
-        finished = input[actualPosition[1]] == undefined;
-        if (!finished) {
-            let splittedRow4 = input[actualPosition[1]].split('');
-            if (splittedRow4[actualPosition[0]] == '#') fourthSlope++;
-        }
-    }
-
-    if (counter == 5) {
-        actualPosition = [(actualPosition[0] + 1) % mapLength, (actualPosition[1] + 2)];
-        console.log(actualPosition);
-        finished = input[actualPosition[1]] == undefined;
-        if (!finished) {
-            let splittedRow5 = input[actualPosition[1]].split('');
-            if (splittedRow5[actualPosition[0]] == '#') fifthSlope++;
-        }
-    }
-    counter++;
+    return trees;
 }
 
+let a = tobboganFunction(1, 1);
+let b = tobboganFunction(3, 1);
+let c = tobboganFunction(5, 1);
+let d = tobboganFunction(7, 1);
+let e = tobboganFunction(1, 2);
 
-
-let finalResult = (trees * secondSlope * thirdSlope * fourthSlope * fifthSlope);
-let firstSlope = trees;
-console.log(trees);
-console.log(secondSlope);
-console.log(thirdSlope);
-console.log(fourthSlope);
-console.log(fifthSlope);
-console.log(finalResult);
-
-
+console.log(a * b * c * d * e);
 
 /* ---------- SECOND PART OF THE CHALLENGE ---------- */
 
-//In this part we'll need to find out how many trees we encounter for each one of the slopes they gave us. Specifically 5 different slopes. I'll add a few lines of code to the algorithm I already wrote.
+/* In this part we'll need to find out how many trees we encounter for each one of the slopes they gave us. Specifically 5 different slopes. I'll add a few lines of code to the algorithm I already wrote. To be specific, I'll write a function and pass it 2 parameters which are going to be the down and the right movement.
 
+The movements we need to do are the following ones:
+- Right 1, down 1
+- Right 3, down 1
+- Right 5, down 1
+- Right 7, down 1
+- Right 1, down 2
+*/
 
 
 
