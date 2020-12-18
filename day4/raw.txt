@@ -1,4 +1,4 @@
-rawInput = """ hcl:5d90f0 cid:270 ecl:#66dc9c hgt:62cm byr:1945 pid:63201172 eyr:2026
+hcl:5d90f0 cid:270 ecl:#66dc9c hgt:62cm byr:1945 pid:63201172 eyr:2026
 
 ecl:amb byr:1943 iyr:2014 eyr:2028
 pid:333051831
@@ -1059,7 +1059,8 @@ eyr:2027 byr:2020 iyr:2012 cid:202
 
 pid:086190379 byr:1931 ecl:blu iyr:2010 eyr:2027 hgt:175cm
 
-ecl:#0dafcd byr:2025 iyr:2021 eyr:1970 hgt:63cm cid:260 hcl:75300a pid:208921120
+ecl:#0dafcd byr:2025 iyr:2021 eyr:1970 hgt:63cm cid:260 hcl:75300a
+pid:208921120
 
 pid:024722981 iyr:2011 hgt:193cm hcl:#efcc98 ecl:blu byr:2001
 
@@ -1099,8 +1100,4 @@ pid:713080083 ecl:#d624ca iyr:2030 hcl:z
 hcl:#7d3b0c pid:431742871
 ecl:hzl hgt:169cm cid:340
 eyr:2023
-iyr:2017 byr:1994 """
-
-splittedInput = rawInput.split('\n\n')
-print(splittedInput)
-
+iyr:2017 byr:1994

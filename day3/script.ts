@@ -327,8 +327,9 @@ let input = [
 ]
 
 /* ---------- FIRST PART OF THE CHALLENGE ---------- */
+
     function tobboganFunction (i, j) {
-    //First we define our actual position, whic is the first caracter of the first element of the array (Top left corner)
+    //First we define our actual position, which is the first caracter of the first element of the array (Top left corner)
     let actualPosition = [0,0];
     //Now we need to know the lenght of the map, so we can stablish a limit to iterate the rows properly
     let mapLength = input[0].split('').length;
@@ -366,6 +367,7 @@ The movements we need to do are the following ones:
 - Right 5, down 1
 - Right 7, down 1
 - Right 1, down 2
+Once we have reached the bottom using the 5 ways they tell us to use, we will have to multiply them by each other, and the result would be the input of the second part of the problem
 */
 
 
