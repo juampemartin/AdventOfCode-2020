@@ -12,38 +12,24 @@
 //- pid (Passport ID)
 //- cid (Country ID) <-- WE CAN DISMISS THIS ONE SO THE PASSPORTS ARE VALID
 
-const fs = require('f
+const fs = require('fs')
 /*
  * We read the input from a file and then we split it into a list of entries
 */
 
-const rawInput = fs.readFileSync('./raw.txt', 'utf-8');
-const inputList = rawInput
-  .trim()
-  .split('\n\n');
+const rawInput = fs.readFileSync('./rawPuzzle.txt', 'utf-8');
+const passport = rawInput.split('\n')
 
 /*
- * Split the entries into lines
-*/
-const lineList = inputList.map(entry => entry.split('\n'));
-console.log(lineList);
+ * Now we have to create a const that contains all of the required fields
+ * */
+
+const requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid'];
 
 /*
- * Convert the lines into arrays 
-*/
+ * Once we have defined our required fields we have to split the lines into
+ * key-value pairs
+ * */
 
-
-/*
- * Combine the arrays into a single array 
-*/
-
-
-/*
- * Convert the resulting array into  a set 
-*/
-
-
-/*
- * Check if all the required fields are in the set 
-*/
+console.log(lines)
 
