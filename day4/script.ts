@@ -12,7 +12,7 @@
 //- pid (Passport ID)
 //- cid (Country ID) <-- WE CAN DISMISS THIS ONE SO THE PASSPORTS ARE VALID
 
-import fs from 'fs';
+const fs = require('f
 /*
  * We read the input from a file and then we split it into a list of entries
 */
