@@ -10,19 +10,40 @@
 //- hcl (Hair Color)
 //- ecl (Eye Color)
 //- pid (Passport ID)
-//- cid (Country ID) <-- WE CAN DISMISS THIS ONE SO THE PASSPORTS WITHOUT THIS
-//                       FIELD WILL BE VALID
+//- cid (Country ID) <-- WE CAN DISMISS THIS ONE SO THE PASSPORTS ARE VALID
 
-const fs = require('fs')
+import fs from 'fs';
+/*
+ * We read the input from a file and then we split it into a list of entries
+*/
 
-let rawInput;
+const rawInput = fs.readFileSync('./raw.txt', 'utf-8');
+const inputList = rawInput
+  .trim()
+  .split('\n\n');
 
-fs.readFile('./raw.txt', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  rawInput = data;
-}) 
+/*
+ * Split the entries into lines
+*/
+const lineList = inputList.map(entry => entry.split('\n'));
+console.log(lineList);
 
-console.log(rawInput)
+/*
+ * Convert the lines into arrays 
+*/
+
+
+/*
+ * Combine the arrays into a single array 
+*/
+
+
+/*
+ * Convert the resulting array into  a set 
+*/
+
+
+/*
+ * Check if all the required fields are in the set 
+*/
+
