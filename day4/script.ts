@@ -18,18 +18,24 @@ const fs = require('fs')
 */
 
 const rawInput = fs.readFileSync('./rawPuzzle.txt', 'utf-8');
-const passport = rawInput.split('\n')
+const passport = rawInput.trim().split('\n');
 
 /*
- * Now we have to create a const that contains all of the required fields
+ * 
  * */
-
-const requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid'];
-
+let requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid'];
 /*
- * Once we have defined our required fields we have to split the lines into
- * key-value pairs
+ * 
  * */
 
-console.log(lines)
+const arrayList = passport.map((entry) => entry.split('\s'));
 
+let data;
+let felicidad = [];
+
+for (let index = 0; index < passport.length; index ++) {
+  data = arrayList[index][0].split(' ');
+  console.log(data)
+  //felicidad.push(data);
+  console.log(index);
+}
