@@ -1,4 +1,3 @@
-
 /*
  * First we need to import the File System library from node.js to be able to
  * read files
@@ -20,12 +19,18 @@ let finalSum;
 let finalArray = [];
 let happiness = [];
 let validPassports = [];
+let mappedData = [];
 
 /*
  * We have to define the fields that are required so we can validate the
  * passports' data later on*/
 
 const requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
+
+/*
+ * Now we have to define the requirements that each of the properties of the
+ * previously validated passports must met
+ * For this we are using Regular Expresion*/
 
 const fieldDefinitions = {
   // A 4 digit character between 1920 and 2002
@@ -45,8 +50,9 @@ const fieldDefinitions = {
 };
 
 /*
- * Now we iterate through every element of the array previously create and
- * change their format from multiple lines to single lines
+ * Now we iterate through every element of the array previously created and
+ * change their format from multiple lines to single lines so we can work
+ * better with them
  * */
 for (let index = 0; index < splittedInput.length; index++) {
   data = splittedInput[index].split('\n');
@@ -62,8 +68,7 @@ const passports = finalArray.map((entry) => entry.split('\s'));
 
 /*
  * Now we iterate through each element of the passports array and push each one
- * of them to our previously created array happiness. Alse we need to create
- * a set so we can validate the data easier*/
+ * of them to our previously created array happiness. */
 
 
 for (let index = 0; index < finalArray.length; index++) {
@@ -71,8 +76,9 @@ for (let index = 0; index < finalArray.length; index++) {
   happiness.push(data);
 }
 
-
-let mappedData = [];
+/*
+ * Now we have to create a Map with a syntax of KEY => VALUE so we can check
+ * and validate the data way easier*/
 
 for (let index = 0; index < happiness.length; index++) {
   let map = new Map();
@@ -82,7 +88,11 @@ for (let index = 0; index < happiness.length; index++) {
   mappedData.push(map);
 }
 
-
+/*
+ * Once have created all of our Map elements we have not to check the data.
+ * Alse, to know kow many passports are valid we create an array called
+ * validPassports and push every valid passport to it so we can use the length
+ * method on it later on*/
 
 for (let index = 0; index < happiness.length; index++) {
   let isValid = Object.entries(fieldDefinitions).every(([field, regex]) => {
@@ -93,11 +103,8 @@ for (let index = 0; index < happiness.length; index++) {
   }
 }
 
+/*
+ * Finally we log the length of the valid passports array so we can know how
+ * many of them there are*/
+
 console.log(validPassports.length);
-
-
-
-
-
-
-
