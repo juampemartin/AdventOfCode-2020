@@ -60,3 +60,7 @@ for (let index = 0; index < happiness.length; index++) {
   }
 }
 console.log(validPassports.length);
+
+const used = process.memoryUsage().heapUsed / 1024 /1024;
+console.log(`El script usa aproximadamente ${Math.round(used * 100) / 100} MB`);
+
