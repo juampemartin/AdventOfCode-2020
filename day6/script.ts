@@ -5,12 +5,16 @@ const rawInput = fs.readFileSync('./input.txt', 'utf-8').split('\n\n').filter (x
 
 let checkAnswersPartOne = () => {
 
-  let totalVotes = 0;
+  let totalVotesPartOne = 0;
+  let totalVotesPartTwo = 0;
 
   for (const group of rawInput) {
     const newSet = new Set([...group.replace(/\n/g, '')]);
-    totalVotes += newSet.size;
+    totalVotesPartOne += newSet.size;
+    totalVotesPartTwo += [...newSet].filter(char => group.split('\n').filter(x => x).every(form => form.includes(char))).length;
   }
-  return totalVotes;
+  console.log(totalVotesPartOne);
+  console.log(totalVotesPartTwo);
 }
-console.log(checkAnswersPartOne());
+
+checkAnswersPartOne();
