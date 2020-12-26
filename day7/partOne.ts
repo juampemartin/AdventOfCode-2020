@@ -82,4 +82,4 @@ for (const value of Object.values(forest)) {
   giveMeTheGold(value);
 }
 
-console.log("Founded " + totalCount + "bags");
+console.log("Founded " + totalCount + " bags");
