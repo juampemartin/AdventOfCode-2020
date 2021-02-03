@@ -20,6 +20,7 @@ let finalSum;
 let finalArray = [];
 let happiness = [];
 let validPassports = [];
+
 /*
  * We have to define the fields that are required so we can validate the
  * passports' data later on*/
@@ -30,6 +31,7 @@ const requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
  * Now we iterate through every element of the array previously create and
  * change their format from multiple lines to single lines
  * */
+
 for (let index = 0; index < splittedInput.length; index++) {
   data = splittedInput[index].split('\n');
   finalSum = data.join(' ');
@@ -53,13 +55,13 @@ for (let index = 0; index < finalArray.length; index++) {
   happiness.push(data);
 }
 
+console.log(happiness);
 for (let index = 0; index < happiness.length; index++) {
   let isValid = requiredFields.every((field) => happiness[index].has(field));
   if (isValid == true) {
     validPassports.push(isValid);
   }
 }
-console.log(validPassports.length);
 
 const used = process.memoryUsage().heapUsed / 1024 /1024;
 console.log(`El script usa aproximadamente ${Math.round(used * 100) / 100} MB`);
